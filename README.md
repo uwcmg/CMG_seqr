@@ -11,8 +11,8 @@ open a terminal and link into the server
 
 ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington.edu
 
-## open your browser to 127.0.0.1:8000 and you should see the index page
-* the server is working on chrome/chromium [not firefox - daniel check this again] if this does not work try switching browser
+open your browser to 127.0.0.1:8000 and you should see the index page
+# * the server is working on chrome/chromium [not firefox - daniel check this again] if this does not work try switching browser
 
 # create a project for your CMG project
 use the ${projectName} in the directory of the project of the form .../mendelian_projects/${projectName}
@@ -32,7 +32,14 @@ this is:
 "R0004_urban_uwcmg_cl_1"
 
 # Pedigree Data:
-Click edit Families and Individuals and Bulk edit families and individuals according to the instructions 
+Click "Edit Families and Individuals" and use tabs
+
+"Bulk Edit families"
+give your file 
+
+essentially "cut -f1 ${your pedigree}" to seqr
+
+and individuals according to the instructions 
 You will need to make a family file and use the pedigree file.
 
 # Datasets:
