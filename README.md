@@ -11,8 +11,10 @@ open a terminal and link into the server
 
 ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington.edu
 
-open your browser to 127.0.0.1:8000 and you should see the index page
-# * the server is working on chrome/chromium [not firefox - daniel check this again] if this does not work try switching browser
+open your browser to 127.0.0.1:8000 and you should see the index page 
+* the server is working on chrome/chromium [not firefox - daniel check this again] if this does not work try switching browser
+
+There is also a way to launch seqr with a tiger vnc just like IGV ...more to come...
 
 # create a project for your CMG project
 use the ${projectName} in the directory of the project of the form .../mendelian_projects/${projectName}
