@@ -22,7 +22,7 @@ open your browser to 127.0.0.1:8000 and you should see the index page
 
 you will not have vol6 access
 
-## On windows using UW's Husky OnNet service (re-branded F5 Big-IP Edge VPN client).
+## UW's Husky OnNet service on Windows (re-branded F5 Big-IP Edge VPN client).
 
 https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/
 
@@ -30,7 +30,7 @@ Same access restrictions as above ... working with GSIT to see if we can get vol
 
 post an issue or email if anyone can get this working for vol6 access!
 
-## To access seqr remotely from a shell AND VOL6 access (can use data in situ)
+## TIGERVNC: To access seqr remotely from a shell AND VOL6 access (can use data in situ)
 
 This will allow CMG analysts to access to vol6 
 
