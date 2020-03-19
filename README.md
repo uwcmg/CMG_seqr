@@ -5,16 +5,26 @@ A place for CMG seqr users and tutorials, scripts to load data, issues
 ## Our CMG server location is 
 rainier.gs.washington.edu:8000
 
-## To access seqr remotely from a shell 
+## To access seqr remotely from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
 open a terminal and link into the server
 
 ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington.edu
 
 open your browser to 127.0.0.1:8000 and you should see the index page 
-* the server is working on chrome/chromium [not firefox - daniel check this again] if this does not work try switching browser
+* the server is working on chrome/chromium firefox has had issues depending on version - if this does not work try switching your browser.
 
-There is also a way to launch seqr with a tiger vnc just like IGV ...more to come...
+## To access seqr remotely from a shell AND VOL6 access (can use data in situ)
+
+This will allow CMG analysts to access to vol6 
+
+1) ssh -Y nexus ...
+2) ssh -Y krakatoa ...
+3) vncviewer -via ${user}@krakatoa localhost:${DisplayId}
+
+${user} is your grc username
+${DisplayId} is your assigned display (Daniel's is :1 - use a unique display id or contact gsit)
+see https://docs.google.com/presentation/d/1uP8xknepxDb-MLFQegD3Xujv2vW2B2RCrv9tEnxr1U4/edit?usp=sharing
 
 # create a project for your CMG project
 use the ${projectName} in the directory of the project of the form .../mendelian_projects/${projectName}
