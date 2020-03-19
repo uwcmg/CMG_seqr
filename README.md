@@ -59,4 +59,6 @@ To load BAM:
 
 # Upload BAM and multi-vcf data 
 
-more to follow ...
+see step 5 of the seqr github instructions here: you will need access to the seqr server (rainier) to run the script for now. A user Script is in progress to remedy this ... more to come.
+
+https://github.com/macarthur-lab/seqr/blob/master/deploy/LOCAL_INSTALL.md
