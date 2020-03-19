@@ -2,14 +2,15 @@
 A place for CMG seqr testing for potential users and tutorials, scripts to load data, issues...
 
 # QuickStart
-## Our CMG server location is 
+## Our INTRANET CMG server location is 
 rainier.gs.washington.edu:8000
 
 ## The Macarthur lab Github site is here:
 
 https://github.com/macarthur-lab/seqr/
 
-## To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
+## ACCESS REMOTELY - SSH -L
+###To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
 This is very slow and limits to nmber of users to the number of display ids - not ideal
 
@@ -22,7 +23,7 @@ open your browser to 127.0.0.1:8000 and you should see the index page
 
 you will not have vol6 access
 
-## UW's Husky OnNet service on Windows (re-branded F5 Big-IP Edge VPN client).
+## ACCESS REMOTELY: UW's Husky OnNet service on Windows (re-branded F5 Big-IP Edge VPN client).
 
 https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/
 
@@ -30,9 +31,10 @@ Same access restrictions as above ... working with GSIT to see if we can get vol
 
 post an issue or email if anyone can get this working for vol6 access!
 
-## TIGERVNC: To access seqr remotely from a shell AND VOL6 access (can use data in situ)
+## ACCESS REMOTELY - TIGERVNC: 
+### To access seqr remotely from a shell AND HAVE VOL6 access (can use data in situ; slower web interface)
 
-This will allow CMG analysts to access to vol6 
+Again - This will allow CMG analysts to access to vol6 
 
 1) ssh -Y nexus ...
 2) ssh -Y krakatoa ...
@@ -42,7 +44,7 @@ ${user} is your grc username
 ${DisplayId} is your assigned display (Daniel's is :1 - use a unique display id or contact gsit)
 see https://docs.google.com/presentation/d/1uP8xknepxDb-MLFQegD3Xujv2vW2B2RCrv9tEnxr1U4/edit?usp=sharing
 
-# create a project for your CMG project
+# 1) Create a project for your CMG project
 use the ${projectName} in the directory of the project of the form .../mendelian_projects/${projectName}
 to name your new project in seqr
 
@@ -59,7 +61,7 @@ http://127.0.0.1:8000/project/R0004_urban_uwcmg_cl_1/project_page
 this is:
 "R0004_urban_uwcmg_cl_1"
 
-# Pedigree Data:
+# 2) ADD Pedigree Data:
 Click "Edit Families and Individuals" and use tabs
 
 "Bulk Edit families"
@@ -70,7 +72,7 @@ essentially "cut -f1 ${your pedigree}" to seqr
 and individuals according to the instructions 
 You will need to make a family file and use the pedigree file.
 
-# DATASETS: Upload BAM and multi-vcf data 
+# 3) DATASETS: Upload BAM and multi-vcf data 
 
 see step 5 of the seqr github instructions here: 
 
@@ -90,3 +92,5 @@ python2.7 gcloud_dataproc/submit.py --run-locally hail_scripts/v01/load_dataset_
 seqr will then convert the dataset to Hail and load it into elasticsearch...
 
 If all goes well, go back to the web interface in your browser and use your uploaded data within seqr.
+
+...
