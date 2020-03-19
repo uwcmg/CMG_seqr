@@ -30,10 +30,6 @@ Same access restrictions as above ... working with GSIT to see if we can get vol
 
 post an issue or email if anyone can get this working for vol6 access!
 
-
-
-
-
 ## To access seqr remotely from a shell AND VOL6 access (can use data in situ)
 
 This will allow CMG analysts to access to vol6 
@@ -76,18 +72,21 @@ You will need to make a family file and use the pedigree file.
 
 # DATASETS: Upload BAM and multi-vcf data 
 
-see step 5 of the seqr github instructions here: you will need access to the seqr server (rainier) from a separate shell to run the script located under /home/nick-seqr/seqr/ for now. A user Script is in progress to remedy this ... more to come.
+see step 5 of the seqr github instructions here: 
 
 https://github.com/macarthur-lab/seqr/blob/master/deploy/LOCAL_INSTALL.md
+
+you will need access to the seqr server (rainier) from a separate shell to run the script located under ${SEQR_DIR}/hail_elasticsearch_pipelines/ for now. A user Script is in progress to remedy this ... more to come.
+
+The call is
+python2.7 gcloud_dataproc/submit.py --run-locally hail_scripts/v01/load_dataset_to_es.py  --spark-home $SPARK_HOME --genome-version $GENOME_VERSION --project-guid $PROJECT_GUID --sample-type $SAMPLE_TYPE --dataset-type $DATASET_TYPE --skip-validation  --exclude-hgmd --vep-block-size 100 --es-block-size 10 --num-shards 1 --hail-version 0.1 --use-nested-objects-for-vep --use-nested-objects-for-genotypes $INPUT_VCF
 
 1) you may encounter an error due to a conflict in the $SPARK_CLASSPATH if so copy the value of the SPARK_CLASSPATH to SPARK_CLASSPATH_ORIG and execute
 
 "unset SPARK_CLASSPATH" and try again
 
-2) be sure to set the driver-memory and executor-memory to values that match your project e.g. from 5G for a trio to 30G+ for a larger cohort (if the size of the multivcf is very large). Currently I am using trial and error but a ratio memG/vcfG is coming...
+2) add two more parameters --driver-memory [] and --executor-memory [] if you have a large multivcf!  Values that match your project e.g. from 5G for a trio to 30G+ for a larger cohort (again if the size of the multivcf is very large). Currently I am using trial and error but a ratio memG/vcfG is coming...the server has 40cpu's and large memory capacity
 
-seqr will convert the dataset to Hail and load it into elasticsearch...
+seqr will then convert the dataset to Hail and load it into elasticsearch...
 
-If all goes well, go back to the web interface and use your uploaded data
-
-Happy Discovery!
+If all goes well, go back to the web interface in your browser and use your uploaded data within seqr.
