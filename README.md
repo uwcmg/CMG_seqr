@@ -11,6 +11,8 @@ https://github.com/macarthur-lab/seqr/
 
 ## To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
+This is very slow and limits to nmber of users to the number of display ids - not ideal
+
 open a terminal and link into the server
 
 ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington.edu
