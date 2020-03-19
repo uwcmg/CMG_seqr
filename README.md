@@ -74,10 +74,7 @@ essentially "cut -f1 ${your pedigree}" to seqr
 and individuals according to the instructions 
 You will need to make a family file and use the pedigree file.
 
-# Datasets:
-To load BAM:
-
-# Upload BAM and multi-vcf data 
+# DATASETS: Upload BAM and multi-vcf data 
 
 see step 5 of the seqr github instructions here: you will need access to the seqr server (rainier) from a separate shell to run the script located under /home/nick-seqr/seqr/ for now. A user Script is in progress to remedy this ... more to come.
 
