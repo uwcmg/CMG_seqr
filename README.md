@@ -62,3 +62,9 @@ To load BAM:
 see step 5 of the seqr github instructions here: you will need access to the seqr server (rainier) to run the script for now. A user Script is in progress to remedy this ... more to come.
 
 https://github.com/macarthur-lab/seqr/blob/master/deploy/LOCAL_INSTALL.md
+
+1) you may encounter an error due to a conflict in the $SPARK_CLASSPATH if so copy the value of the SPARK_CLASSPATH to SPARK_CLASSPATH_ORIG and execute
+
+"unset SPARK_CLASSPATH" and try again
+
+2) be sure to set the driver-memory and executor-memory to values that match your project e.g. from 5G for a trio to 30G+ for a larger cohort (if the size of the multivcf is very large). Currently I am using trial and error but a ratio memG/vcfG is coming...
