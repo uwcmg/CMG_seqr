@@ -5,7 +5,11 @@ A place for CMG seqr users and tutorials, scripts to load data, issues
 ## Our CMG server location is 
 rainier.gs.washington.edu:8000
 
-## To access seqr remotely from a shell without VOL6 access (must copy files locally or to cloud to use Data)
+## The Macarthur lab Github site is here:
+
+https://github.com/macarthur-lab/seqr/
+
+## To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
 open a terminal and link into the server
 
@@ -13,6 +17,20 @@ ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington
 
 open your browser to 127.0.0.1:8000 and you should see the index page 
 * the server is working on chrome/chromium firefox has had issues depending on version - if this does not work try switching your browser.
+
+you will not have vol6 access
+
+## On windows using UW's Husky OnNet service (re-branded F5 Big-IP Edge VPN client).
+
+https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/
+
+Same access restrictions as above ... working with GSIT to see if we can get vol6 access...
+
+post an issue or email if anyone can get this working for vol6 access!
+
+
+
+
 
 ## To access seqr remotely from a shell AND VOL6 access (can use data in situ)
 
@@ -59,7 +77,7 @@ To load BAM:
 
 # Upload BAM and multi-vcf data 
 
-see step 5 of the seqr github instructions here: you will need access to the seqr server (rainier) to run the script for now. A user Script is in progress to remedy this ... more to come.
+see step 5 of the seqr github instructions here: you will need access to the seqr server (rainier) from a separate shell to run the script located under /home/nick-seqr/seqr/ for now. A user Script is in progress to remedy this ... more to come.
 
 https://github.com/macarthur-lab/seqr/blob/master/deploy/LOCAL_INSTALL.md
 
@@ -68,3 +86,9 @@ https://github.com/macarthur-lab/seqr/blob/master/deploy/LOCAL_INSTALL.md
 "unset SPARK_CLASSPATH" and try again
 
 2) be sure to set the driver-memory and executor-memory to values that match your project e.g. from 5G for a trio to 30G+ for a larger cohort (if the size of the multivcf is very large). Currently I am using trial and error but a ratio memG/vcfG is coming...
+
+seqr will convert the dataset to Hail and load it into elasticsearch...
+
+If all goes well, go back to the web interface and use your uploaded data
+
+Happy Discovery!
