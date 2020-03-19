@@ -1,5 +1,5 @@
 # CMG_seqr
-A place for CMG seqr users and tutorials, scripts to load data, issues
+A place for CMG seqr testing for potential users and tutorials, scripts to load data, issues...
 
 # QuickStart
 ## Our CMG server location is 
