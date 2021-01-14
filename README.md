@@ -87,7 +87,7 @@ example individuals tsv:
 drag in your individuals file as  instructed
 
 
-# 3) ADD DATASETS: Upload on-prem multi-vcf data 
+# 3) ADD DATASETS: Upload on-prem multi-vcf data from a rainier command line instance
 
 Seqr converts a vcf to a hail dataset, annotates it and then loads it into elasticsearch.
 This is all done from command line on the rainier seqr server.
