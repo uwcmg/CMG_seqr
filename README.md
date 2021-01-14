@@ -17,6 +17,14 @@ http://rainier.gs.washington.edu/
 this is the easiest way to access seqr
 
 ## ACCESS REMOTELY
+
+## ACCESS REMOTELY - on windows with the f5 Big IP edge client : 
+To access in windows running the f5 client simply navigate to 
+
+http://rainier.gs.washington.edu/
+
+this is the easiest way to access seqr
+
 ### SSH -L
 ### To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
@@ -31,12 +39,6 @@ open your browser to 127.0.0.1:8000 and you should see the index page
 
 you will not have vol6 access
 
-### UW's Husky OnNet service on Windows (re-branded F5 Big-IP Edge VPN client).
-
-https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/
-
-Same access restrictions as above ... 
-
 ### TIGERVNC: 
 ### To access seqr remotely from a shell AND HAVE VOL6 access (can use data in situ; slower web interface)
 
@@ -50,8 +52,8 @@ ${user} is your grc username
 ${DisplayId} is your assigned display (Daniel's is :1 - use a unique display id or contact gsit)
 see https://docs.google.com/presentation/d/1uP8xknepxDb-MLFQegD3Xujv2vW2B2RCrv9tEnxr1U4/edit?usp=sharing
 
-# 1) Create a project for your CMG project
-use the ${projectName} in the directory of the project of the form .../mendelian_projects/${projectName}
+# 1) Create a project for your CMG project on the web server
+use the ${projectName} in the vol6 directory of the project of the form .../mendelian_projects/${projectName}
 to name your new project in seqr
 
 find and click "Create Project +"
