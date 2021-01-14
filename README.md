@@ -17,7 +17,7 @@ http://rainier.gs.washington.edu/
 this is the easiest way to access seqr
 
 ## ACCESS REMOTELY - SSH -L
-###To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
+### To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
 This is very slow and limits to nmber of users to the number of display ids - not ideal
 
@@ -72,17 +72,17 @@ Click "Edit Families and Individuals" and use tabs
 "Bulk Edit families"
 
 example families tsv:
-####FamilyID	Display	Name	Description	Coded Phenotype
-####K49179	K49179	Congenital Diaphramatic Hernia	CDH
+#### FamilyID	Display	Name	Description	Coded Phenotype
+#### K49179	K49179	Congenital Diaphramatic Hernia	CDH
 
 drag in your families file as  instructed
 
 Also make an individuals file according to the instructions 
 
 example individuals tsv:
-####Family ID	Individual ID	Paternal ID	Maternal ID	Sex	Affected Status	Notes	Proband Relation
-####K49179	415425		415426	Male	Affected	K49179-36874	Self
-####K49179	415426			Female	Unaffected	K49179-36875	Mother 
+#### Family ID	Individual ID	Paternal ID	Maternal ID	Sex	Affected Status	Notes	Proband Relation
+#### K49179	415425		415426	Male	Affected	K49179-36874	Self
+#### K49179	415426			Female	Unaffected	K49179-36875	Mother 
 drag in your individuals file as  instructed
 
 
@@ -98,16 +98,16 @@ ssh to rainier.gs.washington.edu with your login and work from command line.
 navigate to /data/docker-shares
 
 you should see something like this:
-####drwxrwxr-x 3 docker nick-mendelian        4096 Sep 30 09:40 config
-####drwxrwxr-x 3 docker nick-mendelian        4096 Sep 11 12:11 data
-####-r--r--r-- 1 docker nick-mendelian        2413 Dec 15 12:34 docker-compose.yml
-####drwxrwxr-x 3 101000 nick-mendelian        4096 Dec 16 13:01 elasticsearch
-####drwxrwxr-x 5 docker nick-mendelian        4096 Jan 12 11:48 input_vcfs
-####-rw-r--r-- 1 docker nick-mendelian 10441015296 Dec  4 12:06 original_data.tgz
-####drwxrwxr-x 2 docker nick-mendelian        4096 Sep 29 10:46 output_mt
-####drwxrwxr-x 3 docker nick-mendelian        4096 Sep 11 11:43 postgres
-####drwxrwsr-x 3 docker nick-mendelian        4096 Dec  9 13:24 seqr-reference-data
-####drwxrwsr-x 4 docker nick-mendelian        4096 Dec  9 10:24 vep_data
+#### drwxrwxr-x 3 docker nick-mendelian        4096 Sep 30 09:40 config
+#### drwxrwxr-x 3 docker nick-mendelian        4096 Sep 11 12:11 data
+#### -r--r--r-- 1 docker nick-mendelian        2413 Dec 15 12:34 docker-compose.yml
+#### drwxrwxr-x 3 101000 nick-mendelian        4096 Dec 16 13:01 elasticsearch
+#### drwxrwxr-x 5 docker nick-mendelian        4096 Jan 12 11:48 input_vcfs
+#### -rw-r--r-- 1 docker nick-mendelian 10441015296 Dec  4 12:06 original_data.tgz
+#### drwxrwxr-x 2 docker nick-mendelian        4096 Sep 29 10:46 output_mt
+#### drwxrwxr-x 3 docker nick-mendelian        4096 Sep 11 11:43 postgres
+#### drwxrwsr-x 3 docker nick-mendelian        4096 Dec  9 13:24 seqr-reference-data
+#### drwxrwsr-x 4 docker nick-mendelian        4096 Dec  9 10:24 vep_data
 
 confirm there is a docker-compose.yml in this location. This is the file that will direct all containers to use this 
 directory hierarchy, permisssons and mounted volumes for us.
@@ -123,8 +123,8 @@ Example:
 cp (or link?) the project's vcf.gz and .tbi index from vol6 to the project directory and set permisssions (775) and owner (docker:nick-mendelian)
 [<user>@rainier bamshad_uwcmg_cdh_5]$ ls -l
 
-####-rwxrwxr-x 1 docker nick-mendelian 291635632 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz
-####-rwxrwxr-x 1 docker nick-mendelian   1671159 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz.tbi
+#### -rwxrwxr-x 1 docker nick-mendelian 291635632 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz
+#### -rwxrwxr-x 1 docker nick-mendelian   1671159 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz.tbi
 
 ne sure to set permisssions and user:group as above
 
@@ -134,11 +134,11 @@ All steps from here on will use a docker container instance of "pipeline runner"
 refer to:
 https://github.com/broadinstitute/seqr/blob/master/deploy/LOCAL_INSTALL.md
 
-###Confirm you are in the /data/docker-shares directory and ensure the docker-compose.yml is in this location!
+### Confirm you are in the /data/docker-shares directory and ensure the docker-compose.yml is in this location!
 
 ### launch the pipeline runner container on rainier:
-####$docker-compose up -d pipeline-runner            # start the pipeline-runner container using the docker-compose.yml build instructions
-####$docker-compose exec pipeline-runner /bin/bash   # open a shell inside the pipeline-runner container (analogous to ssh'ing into a remote machine)
+#### $docker-compose up -d pipeline-runner            # start the pipeline-runner container using the docker-compose.yml build instructions
+#### $docker-compose exec pipeline-runner /bin/bash   # open a shell inside the pipeline-runner container (analogous to ssh'ing into a remote machine)
 
 you will see a new instance of the container running in a shell
 
@@ -181,7 +181,7 @@ Edit or add ${project} as a environment variable as in the following template ru
 ### EXAMPLE Script command follows - IF YOU ARE RUNNING a WES project ADD "--dont-validate" because our target is different than the Broads QC target and will not work without this!!!:
 #### This is what works for me from inside the /data/docker-shares directory:
 
-####python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler --dont-validate --source-paths input_vcfs/${project}/${project}.final.vcf.gz.VT.vcf.gz --genome-version 37 --sample-type WES  --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --clinvar-ht-path seqr-reference-data/GRCh37/clinvar.GRCh37.2020-06-15.ht --vep-config-json-path vep-GRCh37.json
+#### python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler --dont-validate --source-paths input_vcfs/${project}/${project}.final.vcf.gz.VT.vcf.gz --genome-version 37 --sample-type WES  --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --clinvar-ht-path seqr-reference-data/GRCh37/clinvar.GRCh37.2020-06-15.ht --vep-config-json-path vep-GRCh37.json
 
 ### Note: Update the clinvar .ht update from Broad as needed:
 
@@ -203,7 +203,7 @@ This step will launch the Conversion of the VCF!
 
 Example command/script line:
 
-####python3 -m seqr_loading SeqrMTToESTask  --local-scheduler --genome-version 37 --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path /seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --es-host elasticsearch --es-index ${project}_esi --es-index-min-num-shards 10
+#### python3 -m seqr_loading SeqrMTToESTask  --local-scheduler --genome-version 37 --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path /seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --es-host elasticsearch --es-index ${project}_esi --es-index-min-num-shards 10
 
 # Go back to the rainier seqr server page and your project should now be ready for variant search! 
 
