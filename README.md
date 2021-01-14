@@ -141,9 +141,9 @@ https://github.com/broadinstitute/seqr/blob/master/deploy/LOCAL_INSTALL.md
 
 ### launch the pipeline runner container on rainier:
 
-#### $docker-compose up -d pipeline-runner            # start the pipeline-runner container using the docker-compose.yml build instructions
+#### *$docker-compose up -d pipeline-runner            # start the pipeline-runner container using the docker-compose.yml build instructions
 
-#### $docker-compose exec pipeline-runner /bin/bash   # open a shell inside the pipeline-runner container (analogous to ssh'ing into a remote machine)
+#### *$docker-compose exec pipeline-runner /bin/bash   # open a shell inside the pipeline-runner container (analogous to ssh'ing into a remote machine)
 
 you will see a new instance of the container running in a shell
 
@@ -158,7 +158,7 @@ dockershares_pipeline-runner_1 is up-to-date
 
 This shell is in the PIPELINE-RUNNER container.
 
-d240401caef1:/]$
+*d240401caef1:/]$
 
 ### Authenticate your instance with google cloud (not tested without this step):
 
