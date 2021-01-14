@@ -3,7 +3,7 @@ A place for CMG seqr testing for potential users and tutorials, scripts to load 
 
 # QuickStart
 ## Our INTRANET CMG server location is 
-rainier.gs.washington.edu :8000
+http://rainier.gs.washington.edu :8000
 
 ## The Macarthur lab Github site is here with their instructions for reference:
 
