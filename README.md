@@ -37,9 +37,9 @@ you will not have vol6 access
 
 Again - This will allow CMG analysts to access to vol6 
 
-1) ssh -Y nexus ...
-2) ssh -Y krakatoa ...
-3) vncviewer -via ${user}@krakatoa localhost:${DisplayId}
+1) *ssh -Y nexus* ...
+2) *ssh -Y krakatoa* ...
+3) *vncviewer -via ${user}@krakatoa localhost:${DisplayId}*
 
 ${user} is your grc username
 ${DisplayId} is your assigned display (Daniel's is :1 - use a unique display id or contact gsit)
@@ -110,10 +110,10 @@ directory hierarchy, permisssons and mounted volumes for us.
 
 ## create a project directory on the seqr command line
 
-mkdir /data/docker-shares/input_vcf/${project}
+*mkdir /data/docker-shares/input_vcf/${project}*
 
 Example:
-/data/docker-shares/input_vcfs/bamshad_uwcmg_cdh_5
+*/data/docker-shares/input_vcfs/bamshad_uwcmg_cdh_5*
 
 copy (or link?) the project's vcf.gz and .tbi index from vol6 to the project directory 
 
@@ -149,12 +149,12 @@ you will see a new instance of the container running in a shell
 
 example terminal output:
 
-[user@rainier docker-shares]$ docker-compose up -d pipeline-runner
+*[user@rainier docker-shares]$ docker-compose up -d pipeline-runner*
 
 dockershares_elasticsearch_1 is up-to-date
 dockershares_pipeline-runner_1 is up-to-date
 
-[user@rainier docker-shares]$ docker-compose exec pipeline-runner /bin/bash
+*[user@rainier docker-shares]$ docker-compose exec pipeline-runner /bin/bash*
 
 This shell is in the PIPELINE-RUNNER container.
 
@@ -162,7 +162,7 @@ d240401caef1:/]$
 
 ### Authenticate your instance with google cloud (not tested without this step):
 
-d240401caef1:/]$ gcloud auth application-default login
+*d240401caef1:/]$ gcloud auth application-default login*
 
 Go to the link in your browser and copy paste the code to the command line:
 
@@ -186,20 +186,20 @@ Cannot find a quota project to add to ADC. You might receive a "quota exceeded" 
 ### Run a script or command to convert your ${project} dataset to hail format from vcf:
 
 example script is in:
-/input_vcf/ bamshad_uwcmg_cdh_5/ESloadpart1.sh
+*/input_vcf/ bamshad_uwcmg_cdh_5/ESloadpart1.sh*
 
 I currently edit or add ${project} as a environment variable and save and run the script inside each project folder to keep a record of what was run:
 
 #### This is what works for me from inside the /data/docker-shares directory:
 
-#### python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler --dont-validate --source-paths input_vcfs/${project}/${project}.final.vcf.gz.VT.vcf.gz --genome-version 37 --sample-type WES  --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --clinvar-ht-path seqr-reference-data/GRCh37/clinvar.GRCh37.2020-06-15.ht --vep-config-json-path vep-GRCh37.json
+#### *python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler --dont-validate --source-paths input_vcfs/${project}/${project}.final.vcf.gz.VT.vcf.gz --genome-version 37 --sample-type WES  --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --clinvar-ht-path seqr-reference-data/GRCh37/clinvar.GRCh37.2020-06-15.ht --vep-config-json-path vep-GRCh37.json*
 
 Important: IF YOU ARE RUNNING a WES project ADD "--dont-validate" because our target is different than the Broad's QC target and will not work without this!!!
 
 ### Note: Update the clinvar .ht update from Broad as needed by downloading the new dataset:
 
 example from here https://github.com/broadinstitute/seqr/issues/1594:
-gsutil -m cp -r gs://seqr-reference-data/GRCh38/all_reference_data/combined_reference_data_grch38.ht 
+*gsutil -m cp -r gs://seqr-reference-data/GRCh38/all_reference_data/combined_reference_data_grch38.ht* 
 
 This step will launch the Conversion of the VCF! 
 
@@ -208,20 +208,20 @@ This step takes a while to complete
 ## see the Broad reference for cloud datasets :
  SeqrVCFToMTTask --local-scheduler   
 
-    python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler \
-       --reference-ht-path /seqr_reference_data/combined_reference_data_grch38.ht \
-       --clinvar-ht-path /seqr-reference-data/GRCh38/clinvar/clinvar.GRCh38.2020-06-15.ht \
-       --vep-config-json-path /vep85-GRCh38-loftee-gcloud.json \
-       --sample-type WES \
-       --genome-version 38 \
-       --source-paths gs://your-bucket/GRCh38/your-callset.vcf.gz \   # this can be a local path within the pipeline-runner container (eg. /input_vcfs/dir/your-callset.vcf.gz) or a gs:// path 
-       --dest-path gs://your-bucket/GRCh38/your-callset.mt      # this can be a local path within the pipeline-runner container or a gs:// path where you have write access
+    *python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler \
+       *--reference-ht-path /seqr_reference_data/combined_reference_data_grch38.ht \
+       *--clinvar-ht-path /seqr-reference-data/GRCh38/clinvar/clinvar.GRCh38.2020-06-15.ht \
+       *--vep-config-json-path /vep85-GRCh38-loftee-gcloud.json \
+       *--sample-type WES \
+       *--genome-version 38 \
+       *--source-paths gs://your-bucket/GRCh38/your-callset.vcf.gz \   # this can be a local path within the pipeline-runner container (eg. /input_vcfs/dir/your-callset.vcf.gz) or a gs:// path 
+       *--dest-path gs://your-bucket/GRCh38/your-callset.mt      # this can be a local path within the pipeline-runner container or a gs:// path where you have write access*
 
 ## On-prem Step 2 - Now that the vcf is converted to Hail, upload the converted Hail file to elasticsearch and specify the ES index.
 
 Example command/script line:
 
-#### python3 -m seqr_loading SeqrMTToESTask  --local-scheduler --genome-version 37 --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path /seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --es-host elasticsearch --es-index ${project}_esi --es-index-min-num-shards 10
+#### *python3 -m seqr_loading SeqrMTToESTask  --local-scheduler --genome-version 37 --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path /seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --es-host elasticsearch --es-index ${project}_esi --es-index-min-num-shards 10*
 
 # Go back to the rainier seqr server page and your project should now be ready for variant search on the website! 
 
