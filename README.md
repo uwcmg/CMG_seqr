@@ -107,16 +107,22 @@ you should see something like this:
 confirm there is a docker-compose.yml in this location. This is the file that will direct all containers to use this 
 directory hierarchy, permisssons and mounted volumes for us.
 
-## create a project data input directory on the seqr server under 
+## create a project directory on the seqr command line under 
 
-/data/docker-shares/input_vcf/${project}
+mkdir /data/docker-shares/input_vcf/${project}
 
 Example:
-[<user>@rainier bamshad_uwcmg_cdh_5]$ pwd
 /data/docker-shares/input_vcfs/bamshad_uwcmg_cdh_5
 
-cp (or link?) the project's vcf.gz and .tbi index from vol6 to the project directory and set permisssions (775) and owner (docker:nick-mendelian)
-[<user>@rainier bamshad_uwcmg_cdh_5]$ ls -l
+copy (or link?) the project's vcf.gz and .tbi index from vol6 to the project directory 
+
+set permisssions (775) 
+
+owner (docker:nick-mendelian)
+
+check the files:
+
+Example:
 
 #### -rwxrwxr-x 1 docker nick-mendelian 291635632 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz
 #### -rwxrwxr-x 1 docker nick-mendelian   1671159 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz.tbi
@@ -126,13 +132,16 @@ Be sure to set permisssions and user:group as above
 ## On-prem Step 1 - Convert vcf to hail
 
 All steps from here on will use a docker container instance of "pipeline runner"
+
 refer to:
 https://github.com/broadinstitute/seqr/blob/master/deploy/LOCAL_INSTALL.md
 
-### Confirm you are in the /data/docker-shares directory and ensure the docker-compose.yml is in this location!
+### Be sure you are in the /data/docker-shares directory and ensure the docker-compose.yml is in this location!
 
 ### launch the pipeline runner container on rainier:
+
 #### $docker-compose up -d pipeline-runner            # start the pipeline-runner container using the docker-compose.yml build instructions
+
 #### $docker-compose exec pipeline-runner /bin/bash   # open a shell inside the pipeline-runner container (analogous to ssh'ing into a remote machine)
 
 you will see a new instance of the container running in a shell
@@ -151,7 +160,9 @@ This shell is in the PIPELINE-RUNNER container.
 d240401caef1:/]$
 
 ### Authenticate your instance with google cloud (not tested without this step):
+
 d240401caef1:/]$ gcloud auth application-default login
+
 Go to the link in your browser and copy paste the code to the command line:
 
     https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=764086051850 ...
@@ -165,15 +176,18 @@ Enter verification code:
 Credentials saved to file: [/root/.config/gcloud/application_default_credentials.json]
 
 These credentials will be used by any library that requests Application Default Credentials (ADC).
+
 WARNING:
 Cannot find a quota project to add to ADC. You might receive a "quota exceeded" or "API not enabled" error. Run $ gcloud auth application-default set-quota-project to add a quota project.
 
+I ignore the warning for now.
 
 ### Run a script or cammand like /input_vcf/${project}/ESloadpart1.sh to convert your ${project} dataset to hail format from vcf:
 
 Edit or add ${project} as a environment variable as in the following template run-script and save and run the script inside the project folder:
 
 ### EXAMPLE Script command follows - IF YOU ARE RUNNING a WES project ADD "--dont-validate" because our target is different than the Broads QC target and will not work without this!!!:
+
 #### This is what works for me from inside the /data/docker-shares directory:
 
 #### python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler --dont-validate --source-paths input_vcfs/${project}/${project}.final.vcf.gz.VT.vcf.gz --genome-version 37 --sample-type WES  --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --clinvar-ht-path seqr-reference-data/GRCh37/clinvar.GRCh37.2020-06-15.ht --vep-config-json-path vep-GRCh37.json
