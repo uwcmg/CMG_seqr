@@ -201,10 +201,10 @@ This step will launch the Conversion of the VCF!
 
 This step takes a while to complete
 
-## and see Broad ref :
+## see the Broad reference for cloud datasets :
  SeqrVCFToMTTask --local-scheduler   
-   # for GRCh38 callsets, run a command like the one below inside the pipeline-runner container to annotate and load your dataset into elasticsearch
-   python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler \
+
+    python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler \
        --reference-ht-path /seqr_reference_data/combined_reference_data_grch38.ht \
        --clinvar-ht-path /seqr-reference-data/GRCh38/clinvar/clinvar.GRCh38.2020-06-15.ht \
        --vep-config-json-path /vep85-GRCh38-loftee-gcloud.json \
