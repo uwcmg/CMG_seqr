@@ -68,7 +68,7 @@ Click "Edit Families and Individuals" and use tabs
 "Bulk Edit families"
 
 example families tsv:
-#### FamilyID	Display	Name	Description	Coded Phenotype
+#### __FamilyID__	__Display	Name__	__Description__	__Coded Phenotype__
 #### K49179	K49179	Congenital Diaphramatic Hernia	CDH
 
 drag in your families file as  instructed
@@ -76,7 +76,7 @@ drag in your families file as  instructed
 Also make an individuals file according to the instructions 
 
 example individuals tsv:
-#### Family ID	Individual ID	Paternal ID	Maternal ID	Sex	Affected Status	Notes	Proband Relation
+#### __Family ID__	__Individual ID__	__Paternal ID__	__Maternal ID__	__Sex__	__Affected Status__	__Notes__	__Proband Relation__
 #### K49179	415425		415426	Male	Affected	K49179-36874	Self
 #### K49179	415426			Female	Unaffected	K49179-36875	Mother 
 drag in your individuals file as  instructed
