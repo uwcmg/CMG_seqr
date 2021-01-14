@@ -81,7 +81,7 @@ example individuals tsv:
 #### K49179	415426			Female	Unaffected	K49179-36875	Mother 
 drag in your individuals file as  instructed
 
-# The following steps all happen on a command line on the rainier server and not on the web app...
+# *The following steps all happen on a command line on the rainier server and not on the web app...*
 
 # 3) ADD VCF DATASET: Upload on-prem multi-vcf data from a rainier command line instance
 
