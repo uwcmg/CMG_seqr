@@ -182,7 +182,7 @@ Cannot find a quota project to add to ADC. You might receive a "quota exceeded" 
 
 (I ignore the warning for now.)
 
-### Run a script or cammand to convert your ${project} dataset to hail format from vcf:
+### Run a script or command to convert your ${project} dataset to hail format from vcf:
 
 example script is in:
 /input_vcf/ bamshad_uwcmg_cdh_5/ESloadpart1.sh
