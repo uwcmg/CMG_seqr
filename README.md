@@ -16,7 +16,8 @@ http://rainier.gs.washington.edu/
 
 this is the easiest way to access seqr
 
-## ACCESS REMOTELY - SSH -L
+## ACCESS REMOTELY
+### SSH -L
 ### To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
 
 This is very slow and limits to nmber of users to the number of display ids - not ideal
@@ -30,13 +31,13 @@ open your browser to 127.0.0.1:8000 and you should see the index page
 
 you will not have vol6 access
 
-## ACCESS REMOTELY: UW's Husky OnNet service on Windows (re-branded F5 Big-IP Edge VPN client).
+### UW's Husky OnNet service on Windows (re-branded F5 Big-IP Edge VPN client).
 
 https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/
 
 Same access restrictions as above ... 
 
-## ACCESS REMOTELY - TIGERVNC: 
+### TIGERVNC: 
 ### To access seqr remotely from a shell AND HAVE VOL6 access (can use data in situ; slower web interface)
 
 Again - This will allow CMG analysts to access to vol6 
@@ -126,7 +127,7 @@ cp (or link?) the project's vcf.gz and .tbi index from vol6 to the project direc
 #### -rwxrwxr-x 1 docker nick-mendelian 291635632 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz
 #### -rwxrwxr-x 1 docker nick-mendelian   1671159 Jan  7 12:14 bamshad_uwcmg_cdh_5.HF.final.vcf.gz.VT.vcf.gz.tbi
 
-ne sure to set permisssions and user:group as above
+Be sure to set permisssions and user:group as above
 
 ## On-prem Step 1 - Convert vcf to hail
 
