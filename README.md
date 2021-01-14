@@ -146,7 +146,7 @@ https://github.com/broadinstitute/seqr/blob/master/deploy/LOCAL_INSTALL.md
 
 you will see a new instance of the container running in a shell
 
-example terminal:
+example terminal output:
 
 [user@rainier docker-shares]$ docker-compose up -d pipeline-runner
 
@@ -180,21 +180,26 @@ These credentials will be used by any library that requests Application Default 
 WARNING:
 Cannot find a quota project to add to ADC. You might receive a "quota exceeded" or "API not enabled" error. Run $ gcloud auth application-default set-quota-project to add a quota project.
 
-I ignore the warning for now.
+(I ignore the warning for now.)
 
-### Run a script or cammand like /input_vcf/${project}/ESloadpart1.sh to convert your ${project} dataset to hail format from vcf:
+### Run a script or cammand to convert your ${project} dataset to hail format from vcf:
 
-Edit or add ${project} as a environment variable as in the following template run-script and save and run the script inside the project folder:
+example script is in:
+/input_vcf/ bamshad_uwcmg_cdh_5/ESloadpart1.sh
 
-### EXAMPLE Script command follows - IF YOU ARE RUNNING a WES project ADD "--dont-validate" because our target is different than the Broads QC target and will not work without this!!!:
+I currently edit or add ${project} as a environment variable and save and run the script inside each project folder to keep a record of what was run:
 
 #### This is what works for me from inside the /data/docker-shares directory:
 
 #### python3 -m seqr_loading SeqrVCFToMTTask --local-scheduler --dont-validate --source-paths input_vcfs/${project}/${project}.final.vcf.gz.VT.vcf.gz --genome-version 37 --sample-type WES  --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --clinvar-ht-path seqr-reference-data/GRCh37/clinvar.GRCh37.2020-06-15.ht --vep-config-json-path vep-GRCh37.json
 
+Important: IF YOU ARE RUNNING a WES project ADD "--dont-validate" because our target is different than the Broad's QC target and will not work without this!!!
+
 ### Note: Update the clinvar .ht update from Broad as needed:
 
-This step will launch the Conversion of the VCF!
+This step will launch the Conversion of the VCF! 
+
+This step takes a while to complete
 
 ## and see Broad ref :
  SeqrVCFToMTTask --local-scheduler   
@@ -208,13 +213,13 @@ This step will launch the Conversion of the VCF!
        --source-paths gs://your-bucket/GRCh38/your-callset.vcf.gz \   # this can be a local path within the pipeline-runner container (eg. /input_vcfs/dir/your-callset.vcf.gz) or a gs:// path 
        --dest-path gs://your-bucket/GRCh38/your-callset.mt      # this can be a local path within the pipeline-runner container or a gs:// path where you have write access
 
-## On-prem Step 2 - Now that the vcf is converted, upload the converted Hail file to elasticsearch for the seqr server to use.
+## On-prem Step 2 - Now that the vcf is converted to Hail, upload the converted Hail file to elasticsearch and specify the ES index.
 
 Example command/script line:
 
 #### python3 -m seqr_loading SeqrMTToESTask  --local-scheduler --genome-version 37 --dest-path /input_vcfs/${project}/${project}.mt --reference-ht-path /seqr-reference-data/GRCh37/combined_reference_data_grch37.ht --es-host elasticsearch --es-index ${project}_esi --es-index-min-num-shards 10
 
-# Go back to the rainier seqr server page and your project should now be ready for variant search! 
+# Go back to the rainier seqr server page and your project should now be ready for variant search on the website! 
 
 Example:
 http://rainier.gs.washington.edu/project/R0009_bamshad_uwcmg_cdh_5/project_page
