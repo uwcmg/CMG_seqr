@@ -11,7 +11,7 @@ https://github.com/macarthur-lab/seqr/
 
 ## ACCESS Seqr REMOTELY
 
-## On windows with the f5 Big IP edge client : 
+## On windows/Mac with the f5 Big IP edge (VPN) client connected to Genome Sciences (add server: https://dept-huskyonnet-ns.uw.edu/gs): 
 To access in windows running the f5 client simply navigate to 
 
 http://rainier.gs.washington.edu/
