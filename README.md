@@ -5,20 +5,13 @@ A place for CMG seqr testing for potential users and tutorials, scripts to load 
 ## Our INTRANET CMG server location is 
 rainier.gs.washington.edu :8000
 
-## The Macarthur lab Github site is here:
+## The Macarthur lab Github site is here with their instructions for reference:
 
 https://github.com/macarthur-lab/seqr/
 
-## ACCESS REMOTELY - f5 Big IP edge client : 
-To access in windows running the f5 client simply navigate to 
+## ACCESS Seqr REMOTELY
 
-http://rainier.gs.washington.edu/
-
-this is the easiest way to access seqr
-
-## ACCESS REMOTELY
-
-## ACCESS REMOTELY - on windows with the f5 Big IP edge client : 
+## On windows with the f5 Big IP edge client : 
 To access in windows running the f5 client simply navigate to 
 
 http://rainier.gs.washington.edu/
@@ -89,7 +82,7 @@ example individuals tsv:
 drag in your individuals file as  instructed
 
 
-# 3) ADD DATASETS: Upload on-prem multi-vcf data from a rainier command line instance
+# 3) ADD VCF DATASET: Upload on-prem multi-vcf data from a rainier command line instance
 
 Seqr converts a vcf to a hail dataset, annotates it and then loads it into elasticsearch.
 This is all done from command line on the rainier seqr server.
@@ -106,7 +99,6 @@ you should see something like this:
 #### -r--r--r-- 1 docker nick-mendelian        2413 Dec 15 12:34 docker-compose.yml
 #### drwxrwxr-x 3 101000 nick-mendelian        4096 Dec 16 13:01 elasticsearch
 #### drwxrwxr-x 5 docker nick-mendelian        4096 Jan 12 11:48 input_vcfs
-#### -rw-r--r-- 1 docker nick-mendelian 10441015296 Dec  4 12:06 original_data.tgz
 #### drwxrwxr-x 2 docker nick-mendelian        4096 Sep 29 10:46 output_mt
 #### drwxrwxr-x 3 docker nick-mendelian        4096 Sep 11 11:43 postgres
 #### drwxrwsr-x 3 docker nick-mendelian        4096 Dec  9 13:24 seqr-reference-data
@@ -147,12 +139,12 @@ you will see a new instance of the container running in a shell
 
 example terminal:
 
-[mcgold@rainier docker-shares]$ docker-compose up -d pipeline-runner
+[user@rainier docker-shares]$ docker-compose up -d pipeline-runner
 
 dockershares_elasticsearch_1 is up-to-date
 dockershares_pipeline-runner_1 is up-to-date
 
-[mcgold@rainier docker-shares]$ docker-compose exec pipeline-runner /bin/bash
+[user@rainier docker-shares]$ docker-compose exec pipeline-runner /bin/bash
 
 This shell is in the PIPELINE-RUNNER container.
 
