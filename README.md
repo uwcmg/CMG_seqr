@@ -25,7 +25,7 @@ This is very slow and limits to nmber of users to the number of display ids - no
 
 open a terminal and link into the server
 
-ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington.edu
+*ssh -L 127.0.0.1:8000:rainier.gs.washington.edu:8000 ${user}@nexus.gs.washington.edu*
 
 open your browser to 127.0.0.1:8000 and you should see the index page 
 * the server is working on chrome/chromium firefox has had issues depending on version - if this does not work try switching your browser.
