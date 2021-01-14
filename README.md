@@ -107,7 +107,7 @@ you should see something like this:
 confirm there is a docker-compose.yml in this location. This is the file that will direct all containers to use this 
 directory hierarchy, permisssons and mounted volumes for us.
 
-## create a project directory on the seqr command line under 
+## create a project directory on the seqr command line
 
 mkdir /data/docker-shares/input_vcf/${project}
 
