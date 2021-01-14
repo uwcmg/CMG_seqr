@@ -195,7 +195,10 @@ I currently edit or add ${project} as a environment variable and save and run th
 
 Important: IF YOU ARE RUNNING a WES project ADD "--dont-validate" because our target is different than the Broad's QC target and will not work without this!!!
 
-### Note: Update the clinvar .ht update from Broad as needed:
+### Note: Update the clinvar .ht update from Broad as needed by downloading the new dataset:
+
+example from here https://github.com/broadinstitute/seqr/issues/1594:
+gsutil -m cp -r gs://seqr-reference-data/GRCh38/all_reference_data/combined_reference_data_grch38.ht 
 
 This step will launch the Conversion of the VCF! 
 
