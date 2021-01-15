@@ -47,7 +47,7 @@ see https://docs.google.com/presentation/d/1uP8xknepxDb-MLFQegD3Xujv2vW2B2RCrv9t
 
 # *The following steps happen on the seqr web server...*
 
-# 1) Create a project for your CMG project on the web server
+# 1) Create a project for your CMG project
 use the ${projectName} in the vol6 directory of the project of the form .../mendelian_projects/${projectName}
 to name your new project in seqr
 
@@ -64,7 +64,7 @@ http://127.0.0.1:8000/project/R0004_urban_uwcmg_cl_1/project_page
 this is:
 "R0004_urban_uwcmg_cl_1"
 
-# 2) ADD Pedigree Data using a local file and the seqr web interface:
+# 2) ADD Pedigree Data using a local file
 Click "Edit Families and Individuals" and use tabs
 
 "Bulk Edit families"
