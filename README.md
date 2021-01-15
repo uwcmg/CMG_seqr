@@ -5,6 +5,8 @@ A place for CMG seqr testing for potential users and tutorials, scripts to load 
 ## Our INTRANET CMG server location is 
 http://rainier.gs.washington.edu :8000
 
+use this address if you are within the intranet on campus.
+
 ## The Macarthur lab Github site is here with their instructions for reference:
 
 https://github.com/macarthur-lab/seqr/
