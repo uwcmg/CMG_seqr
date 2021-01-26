@@ -21,7 +21,7 @@ http://rainier.gs.washington.edu/
 this is the easiest way to access seqr
 
 ### SSH -L
-### To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use Data)
+### To access seqr remotely (at home) from a shell without VOL6 access (must copy files locally or to cloud to use data)
 
 This is very slow and limits to nmber of users to the number of display ids - not ideal
 
@@ -66,7 +66,7 @@ http://127.0.0.1:8000/project/R0004_urban_uwcmg_cl_1/project_page
 this is:
 "R0004_urban_uwcmg_cl_1"
 
-# 2) ADD Pedigree Data using a local file
+# 2) Add Pedigree Data using a local file
 Click "Edit Families and Individuals" and use tabs
 
 "Bulk Edit families"
@@ -87,7 +87,7 @@ drag in your individuals file as  instructed
 
 # *The following steps all happen on a command line on the rainier server and not on the web app...*
 
-# 3) ADD VCF DATASET: Upload on-prem multi-vcf data from a rainier command line instance
+# 3) Add VCF Dataset: Upload on-prem multi-vcf data from a rainier command line instance
 
 Seqr converts a vcf to a hail dataset, annotates it and then loads it into elasticsearch.
 This is all done from command line on the rainier seqr server.
